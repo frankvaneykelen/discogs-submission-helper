@@ -10,6 +10,12 @@ const { loadReleaseSpec, validateReleaseSpec } = require('../src/releaseSpec');
 
 const exampleReleasePath = path.join(__dirname, '..', 'examples', 'musique-arabe.json');
 const sofrehSeenReleasePath = path.join(__dirname, '..', 'submissions', 'sofreh-seen.json');
+const shahramShersharReleasePath = path.join(
+  __dirname,
+  '..',
+  'submissions',
+  'memorial-of-shahram-shershar.json'
+);
 const najvaReleasePath = path.join(__dirname, '..', 'submissions', 'najva.json');
 
 function createValidReleaseSpec() {
@@ -37,6 +43,15 @@ test('loadReleaseSpec loads and validates the Sofreh Seen submission', () => {
   assert.deepEqual(releaseSpec.artists, ['Dariush', 'Hatef']);
   assert.equal(releaseSpec.tracklist.length, 6);
   assert.equal(releaseSpec.credits.engineered_by, 'Saeed Davis');
+});
+
+test('loadReleaseSpec loads and validates the Memorial of Shahram Shershar submission', () => {
+  const releaseSpec = loadReleaseSpec(shahramShersharReleasePath);
+  assert.equal(releaseSpec.title, 'یادواره شهرام شرشار');
+  assert.equal(releaseSpec.english_title, 'Memorial of Shahram Shershar');
+  assert.equal(releaseSpec.released, null);
+  assert.equal(releaseSpec.tracklist.length, 4);
+  assert.equal(releaseSpec.credits.cover_design, 'Koorosh Angali');
 });
 
 test('loadReleaseSpec loads and validates the Najva submission', () => {
