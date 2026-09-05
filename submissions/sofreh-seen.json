@@ -1,0 +1,35 @@
+{
+  "title": "Sofreh Seen",
+  "artists": ["Dariush", "Hatef"],
+  "format": ["Cassette", "Album"],
+  "country": "US",
+  "released": "1992",
+  "label": "Caltex Records",
+  "catalog_number": "2123",
+  "barcode": "03526-52119-2",
+  "genre": ["Pop", "Folk, World"],
+  "style": ["Persian Pop"],
+  "credits": {
+    "executive_producer": "Mehrdad Pakravan",
+    "cover_and_package_design": "Behzad",
+    "promotion": "Ali Amirghassemi",
+    "cover_photo": "Saeed &amp; Hatef",
+    "published_by": "Aasan Music Co.",
+    "arrangement": "Amir Ahssemi",
+    "engineered_by": "Saeed Davis"
+  },
+  "notes": "Original Caltex Records cassette release. Persian-language album. Images sourced from user-owned physical copy.",
+  "tracklist": [
+    { "position": "A1", "artist": "Dariush", "title": "Bia Nayi" },
+    { "position": "A2", "artist": "Dariush", "title": "Chi Begam" },
+    { "position": "A3", "artist": "Dariush", "title": "Sofreh Seen" },
+    { "position": "B1", "artist": "Hatef", "title": "Lala" },
+    { "position": "B2", "artist": "Hatef", "title": "Koodakiya" },
+    { "position": "B3", "artist": "Hatef", "title": "Saeed" }
+  ],
+  "images": [
+    "front_cover.jpg",
+    "cassette_shell.jpg",
+    "insert_back.jpg"
+  ]
+}

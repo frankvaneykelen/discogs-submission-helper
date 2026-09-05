@@ -9,12 +9,21 @@ const os = require('node:os');
 const { loadReleaseSpec, validateReleaseSpec } = require('../src/releaseSpec');
 
 const exampleReleasePath = path.join(__dirname, '..', 'examples', 'musique-arabe.json');
+const sofrehSeenReleasePath = path.join(__dirname, '..', 'submissions', 'sofreh-seen.json');
 
 test('loadReleaseSpec loads and validates the example release spec', () => {
   const releaseSpec = loadReleaseSpec(exampleReleasePath);
   assert.equal(releaseSpec.title, 'Musique Arabe');
   assert.equal(releaseSpec.tracklist.length, 12);
   assert.deepEqual(releaseSpec.format, ['Cassette', 'Compilation', 'Unofficial Release']);
+});
+
+test('loadReleaseSpec loads and validates the Sofreh Seen submission', () => {
+  const releaseSpec = loadReleaseSpec(sofrehSeenReleasePath);
+  assert.equal(releaseSpec.title, 'Sofreh Seen');
+  assert.deepEqual(releaseSpec.artists, ['Dariush', 'Hatef']);
+  assert.equal(releaseSpec.tracklist.length, 6);
+  assert.equal(releaseSpec.credits.engineered_by, 'Saeed Davis');
 });
 
 test('validateReleaseSpec accepts a minimal valid release spec', () => {
