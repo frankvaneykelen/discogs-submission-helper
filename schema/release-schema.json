@@ -1,55 +1,69 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/frankvaneykelen/discogs-submission-helper/schema/release-schema.json",
-  "title": "Discogs Release Spec",
-  "description": "JSON structure describing a release to be submitted to Discogs.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DiscogsPhysicalRelease",
   "type": "object",
-  "required": ["title", "format", "tracklist"],
-  "additionalProperties": true,
+  "required": ["title", "artists", "format", "country", "released", "label", "tracklist"],
   "properties": {
-    "title": {
-      "type": "string",
-      "minLength": 1,
-      "description": "Release title."
+    "title": { "type": "string", "minLength": 1 },
+    "artists": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "minItems": 1
     },
     "format": {
       "type": "array",
-      "items": { "type": "string", "minLength": 1 },
-      "minItems": 1,
-      "description": "Format descriptors, e.g. [\"Cassette\", \"Compilation\", \"Unofficial Release\"]."
+      "items": {
+        "type": "string",
+        "enum": ["Cassette", "Vinyl", "CD", "Album", "Compilation", "Unofficial Release", "Reissue", "LP", "EP", "Single"]
+      },
+      "minItems": 1
     },
-    "country": {
-      "type": "string",
-      "description": "Country of release, e.g. \"Unknown\"."
-    },
-    "released": {
-      "type": "string",
-      "description": "Release year or date, e.g. \"2002\"."
-    },
+    "country": { "type": "string", "minLength": 1 },
+    "released": { "type": ["string", "integer"], "pattern": "^[0-9]{4}$" },
+    "label": { "type": "string", "minLength": 1 },
+    "catalog_number": { "type": ["string", "null"], "pattern": "^[A-Za-z0-9\\-\\.\\/ ]+$" },
+    "barcode": { "type": ["string", "null"], "pattern": "^[0-9\\- ]+$" },
     "genre": {
       "type": "array",
-      "items": { "type": "string", "minLength": 1 }
+      "items": { "type": "string" }
     },
     "style": {
       "type": "array",
-      "items": { "type": "string", "minLength": 1 }
+      "items": { "type": "string" }
     },
-    "notes": {
-      "type": "string"
+    "credits": {
+      "type": "object",
+      "properties": {
+        "executive_producer": { "type": "string" },
+        "cover_and_package_design": { "type": "string" },
+        "promotion": { "type": "string" },
+        "cover_photo": { "type": "string" },
+        "published_by": { "type": "string" },
+        "arrangement": { "type": "string" },
+        "engineered_by": { "type": "string" }
+      },
+      "additionalProperties": false
     },
+    "notes": { "type": "string" },
     "tracklist": {
       "type": "array",
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["position", "title"],
-        "additionalProperties": true,
+        "required": ["position", "artist", "title"],
         "properties": {
-          "position": { "type": "string", "minLength": 1 },
-          "artist": { "type": "string" },
-          "title": { "type": "string", "minLength": 1 }
-        }
+          "position": { "type": "string", "pattern": "^[A-B][0-9]+$" },
+          "artist": { "type": "string", "minLength": 1 },
+          "title": { "type": "string", "minLength": 1 },
+          "duration": { "type": ["string", "null"], "pattern": "^[0-9]{1,2}:[0-9]{2}$" }
+        },
+        "additionalProperties": false
       }
+    },
+    "images": {
+      "type": "array",
+      "items": { "type": "string" }
     }
-  }
+  },
+  "additionalProperties": false
 }

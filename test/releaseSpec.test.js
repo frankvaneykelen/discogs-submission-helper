@@ -11,6 +11,18 @@ const { loadReleaseSpec, validateReleaseSpec } = require('../src/releaseSpec');
 const exampleReleasePath = path.join(__dirname, '..', 'examples', 'musique-arabe.json');
 const sofrehSeenReleasePath = path.join(__dirname, '..', 'submissions', 'sofreh-seen.json');
 
+function createValidReleaseSpec() {
+  return {
+    title: 'Test Release',
+    artists: ['Test Artist'],
+    format: ['Vinyl'],
+    country: 'Netherlands',
+    released: '2026',
+    label: 'Test Label',
+    tracklist: [{ position: 'A1', artist: 'Test Artist', title: 'Track One' }],
+  };
+}
+
 test('loadReleaseSpec loads and validates the example release spec', () => {
   const releaseSpec = loadReleaseSpec(exampleReleasePath);
   assert.equal(releaseSpec.title, 'Musique Arabe');
@@ -27,11 +39,7 @@ test('loadReleaseSpec loads and validates the Sofreh Seen submission', () => {
 });
 
 test('validateReleaseSpec accepts a minimal valid release spec', () => {
-  const { valid, errors } = validateReleaseSpec({
-    title: 'Test Release',
-    format: ['Vinyl'],
-    tracklist: [{ position: 'A1', title: 'Track One' }],
-  });
+  const { valid, errors } = validateReleaseSpec(createValidReleaseSpec());
   assert.equal(valid, true);
   assert.deepEqual(errors, []);
 });
@@ -42,14 +50,22 @@ test('validateReleaseSpec rejects a release spec missing required fields', () =>
   assert.ok(errors.length > 0);
 });
 
-test('validateReleaseSpec rejects a tracklist item missing a title', () => {
-  const { valid, errors } = validateReleaseSpec({
-    title: 'Test Release',
-    format: ['Vinyl'],
-    tracklist: [{ position: 'A1' }],
-  });
+test('validateReleaseSpec rejects a tracklist item missing an artist', () => {
+  const releaseSpec = createValidReleaseSpec();
+  releaseSpec.tracklist = [{ position: 'A1', title: 'Track One' }];
+  const { valid, errors } = validateReleaseSpec(releaseSpec);
   assert.equal(valid, false);
-  assert.ok(errors.some((e) => e.includes('title')));
+  assert.ok(errors.some((e) => e.includes('artist')));
+});
+
+test('validateReleaseSpec rejects unsupported fields and format values', () => {
+  const releaseSpec = createValidReleaseSpec();
+  releaseSpec.format = ['Digital'];
+  releaseSpec.extra = true;
+  const { valid, errors } = validateReleaseSpec(releaseSpec);
+  assert.equal(valid, false);
+  assert.ok(errors.some((e) => e.includes('format')));
+  assert.ok(errors.some((e) => e.includes('additional properties')));
 });
 
 test('loadReleaseSpec throws a helpful error for invalid JSON', () => {

@@ -2,12 +2,12 @@
 
 const fs = require('fs');
 const path = require('path');
-const Ajv = require('ajv');
+const Ajv = require('ajv/dist/2020');
 
 const schemaPath = path.join(__dirname, '..', 'schema', 'release-schema.json');
 const schema = JSON.parse(fs.readFileSync(schemaPath, 'utf8'));
 
-const ajv = new Ajv({ allErrors: true });
+const ajv = new Ajv({ allErrors: true, allowUnionTypes: true });
 const validate = ajv.compile(schema);
 
 /**
