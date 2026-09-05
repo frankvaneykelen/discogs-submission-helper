@@ -25,9 +25,11 @@ See `schema/release-schema.json` for the full schema and
 ```json
 {
   "title": "Musique Arabe",
+  "artists": ["Various"],
   "format": ["Cassette", "Compilation", "Unofficial Release"],
   "country": "Unknown",
   "released": "2002",
+  "label": "Unknown",
   "genre": ["Pop", "Folk, World"],
   "style": ["Arabic Pop", "Jeel", "Shaabi"],
   "notes": "Street-market cassette; no j-card; tracklist reconstructed.",
@@ -37,8 +39,8 @@ See `schema/release-schema.json` for the full schema and
 }
 ```
 
-`title`, `format`, and `tracklist` are required; each tracklist item requires
-`position` and `title` (`artist` is optional).
+`title`, `artists`, `format`, `country`, `released`, `label`, and `tracklist`
+are required; each tracklist item requires `position`, `artist`, and `title`.
 
 ## Usage
 
