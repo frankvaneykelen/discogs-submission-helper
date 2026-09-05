@@ -1,0 +1,29 @@
+{
+  "title": "یادواره شهرام شرشار",
+  "english_title": "Memorial of Shahram Shershar",
+  "artists": ["گروه عشاق شهرام شرشار"],
+  "artist_romanized": "Goruh-e Oshagh Shahram Shershar",
+  "format": ["Cassette"],
+  "country": "Germany",
+  "city": "Frankfurt am Main",
+  "released": null,
+  "label": "PAÑA AUDIO VIDEO",
+  "catalog_number": null,
+  "contact": {
+    "po_box": "160846",
+    "phone": "069/234247-8"
+  },
+  "language": "Persian",
+  "genre": ["Folk", "World", "Traditional Persian"],
+  "credits": {
+    "cover_design": "Koorosh Angali"
+  },
+  "notes": "Persian traditional ensemble cassette released by PAÑA AUDIO VIDEO in Frankfurt. Exact track titles and year unknown.",
+  "tracklist": [
+    { "position": "A1", "artist": "گروه عشاق شهرام شرشار", "title": null },
+    { "position": "A2", "artist": "گروه عشاق شهرام شرشار", "title": null },
+    { "position": "B1", "artist": "گروه عشاق شهرام شرشار", "title": null },
+    { "position": "B2", "artist": "گروه عشاق شهرام شرشار", "title": null }
+  ],
+  "images": ["Tri-fold booklet with ensemble photo and portrait of a woman."]
+}
