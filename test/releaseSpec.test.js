@@ -10,6 +10,7 @@ const { loadReleaseSpec, validateReleaseSpec } = require('../src/releaseSpec');
 
 const exampleReleasePath = path.join(__dirname, '..', 'examples', 'musique-arabe.json');
 const sofrehSeenReleasePath = path.join(__dirname, '..', 'submissions', 'sofreh-seen.json');
+const najvaReleasePath = path.join(__dirname, '..', 'submissions', 'najva.json');
 
 function createValidReleaseSpec() {
   return {
@@ -36,6 +37,14 @@ test('loadReleaseSpec loads and validates the Sofreh Seen submission', () => {
   assert.deepEqual(releaseSpec.artists, ['Dariush', 'Hatef']);
   assert.equal(releaseSpec.tracklist.length, 6);
   assert.equal(releaseSpec.credits.engineered_by, 'Saeed Davis');
+});
+
+test('loadReleaseSpec loads and validates the Najva submission', () => {
+  const releaseSpec = loadReleaseSpec(najvaReleasePath);
+  assert.equal(releaseSpec.title, 'نجوا');
+  assert.equal(releaseSpec.released, null);
+  assert.equal(releaseSpec.artists[0].role, 'Vocals');
+  assert.deepEqual(releaseSpec.extra.poets, ['Rumi', 'Hafez', 'Saadi']);
 });
 
 test('validateReleaseSpec accepts a minimal valid release spec', () => {
@@ -65,7 +74,7 @@ test('validateReleaseSpec rejects unsupported fields and format values', () => {
   const { valid, errors } = validateReleaseSpec(releaseSpec);
   assert.equal(valid, false);
   assert.ok(errors.some((e) => e.includes('format')));
-  assert.ok(errors.some((e) => e.includes('additional properties')));
+  assert.ok(errors.some((e) => e.includes('extra')));
 });
 
 test('loadReleaseSpec throws a helpful error for invalid JSON', () => {

@@ -2,12 +2,25 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "DiscogsPhysicalRelease",
   "type": "object",
-  "required": ["title", "artists", "format", "country", "released", "label", "tracklist"],
+  "required": ["title", "artists", "format", "country", "released", "tracklist"],
   "properties": {
     "title": { "type": "string", "minLength": 1 },
     "artists": {
       "type": "array",
-      "items": { "type": "string", "minLength": 1 },
+      "items": {
+        "oneOf": [
+          { "type": "string", "minLength": 1 },
+          {
+            "type": "object",
+            "required": ["name", "role"],
+            "properties": {
+              "name": { "type": "string", "minLength": 1 },
+              "role": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          }
+        ]
+      },
       "minItems": 1
     },
     "format": {
@@ -19,8 +32,16 @@
       "minItems": 1
     },
     "country": { "type": "string", "minLength": 1 },
-    "released": { "type": ["string", "integer"], "pattern": "^[0-9]{4}$" },
+    "released": { "type": ["string", "integer", "null"], "pattern": "^[0-9]{4}$" },
     "label": { "type": "string", "minLength": 1 },
+    "labels": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "identifiers": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
     "catalog_number": { "type": ["string", "null"], "pattern": "^[A-Za-z0-9\\-\\.\\/ ]+$" },
     "barcode": { "type": ["string", "null"], "pattern": "^[0-9\\- ]+$" },
     "genre": {
@@ -47,7 +68,7 @@
     "notes": { "type": "string" },
     "tracklist": {
       "type": "array",
-      "minItems": 1,
+      "minItems": 0,
       "items": {
         "type": "object",
         "required": ["position", "artist", "title"],
@@ -63,6 +84,18 @@
     "images": {
       "type": "array",
       "items": { "type": "string" }
+    },
+    "extra": {
+      "type": "object",
+      "properties": {
+        "poets": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "ensemble": { "type": "string" },
+        "art_description": { "type": "string" }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false
