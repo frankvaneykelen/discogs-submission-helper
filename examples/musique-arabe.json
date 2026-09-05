@@ -1,0 +1,23 @@
+{
+  "title": "Musique Arabe",
+  "format": ["Cassette", "Compilation", "Unofficial Release"],
+  "country": "Unknown",
+  "released": "2002",
+  "genre": ["Pop", "Folk, World"],
+  "style": ["Arabic Pop", "Jeel", "Shaabi"],
+  "notes": "Street-market cassette; no j-card; tracklist reconstructed.",
+  "tracklist": [
+    { "position": "A1", "artist": "Free Baby", "title": "Baba Fein" },
+    { "position": "A2", "artist": "Mustafa Amar", "title": "Munaya" },
+    { "position": "A3", "artist": "Shaina Said", "title": "Ghadar" },
+    { "position": "A4", "artist": "Nawal Al Zoghbi", "title": "Elly Etmanetoh" },
+    { "position": "A5", "artist": "Samira Said", "title": "Allah Yesahelak" },
+    { "position": "A6", "artist": "", "title": "Unknown" },
+    { "position": "B1", "artist": "Assi El Hallani", "title": "Ween Kan Alaya" },
+    { "position": "B2", "artist": "Moeeen Shreef", "title": "Habibi" },
+    { "position": "B3", "artist": "Youssra", "title": "Hob" },
+    { "position": "B4", "artist": "Elissa", "title": "Ayshalak (DJ Sammy Shadow Remix)" },
+    { "position": "B5", "artist": "Mohammed Al Mazem", "title": "Ahibbak Ze" },
+    { "position": "B6", "artist": "Ehab Tawfik", "title": "Allah Aleik Ya Sidi" }
+  ]
+}
