@@ -1,0 +1,48 @@
+{
+  "title": "نجوا",
+  "artists": [
+    {
+      "name": "Shahram Nazeri",
+      "role": "Vocals"
+    },
+    {
+      "name": "Mohammad Reza Lotfi",
+      "role": "Conductor, Arrangement"
+    },
+    {
+      "name": "Habibollah Badiei",
+      "role": "Tar"
+    },
+    {
+      "name": "Gholamhossein Bigcheh Khani",
+      "role": "Ney"
+    },
+    {
+      "name": "Mojtaba Mirzadeh",
+      "role": "Ney, Kamancheh"
+    },
+    {
+      "name": "Ali Naseri",
+      "role": "Tar"
+    },
+    {
+      "name": "Goruh-e Sheyda",
+      "role": "Ensemble"
+    }
+  ],
+  "format": ["Cassette", "Album", "Unofficial Release"],
+  "country": "Unknown",
+  "released": null,
+  "genre": ["Folk, World, &amp; Country"],
+  "style": ["Persian Classical", "Radif", "Traditional"],
+  "labels": [],
+  "identifiers": [],
+  "notes": "Cassette with Persian calligraphy artwork titled 'Najva'. Credits include Shahram Nazeri (vocals), Mohammad Reza Lotfi (arrangement and conducting), Habibollah Badiei (tar), Gholamhossein Bigcheh Khani (ney), Mojtaba Mirzadeh (ney, kamancheh), Ali Naseri (tar), and the Shida Ensemble. Poetry attributed to Rumi, Hafez, and Saadi. Likely a private or unofficial duplication; no catalog number or barcode present.",
+  "tracklist": [],
+  "images": [],
+  "extra": {
+    "poets": ["Rumi", "Hafez", "Saadi"],
+    "ensemble": "Shida Ensemble",
+    "art_description": "Autumn tree artwork with Persian calligraphy"
+  }
+}

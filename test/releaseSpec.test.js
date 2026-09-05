@@ -16,6 +16,7 @@ const shahramShersharReleasePath = path.join(
   'submissions',
   'memorial-of-shahram-shershar.json'
 );
+const najvaReleasePath = path.join(__dirname, '..', 'submissions', 'najva.json');
 
 function createValidReleaseSpec() {
   return {
@@ -53,6 +54,14 @@ test('loadReleaseSpec loads and validates the Memorial of Shahram Shershar submi
   assert.equal(releaseSpec.credits.cover_design, 'Koorosh Angali');
 });
 
+test('loadReleaseSpec loads and validates the Najva submission', () => {
+  const releaseSpec = loadReleaseSpec(najvaReleasePath);
+  assert.equal(releaseSpec.title, 'نجوا');
+  assert.equal(releaseSpec.released, null);
+  assert.equal(releaseSpec.artists[0].role, 'Vocals');
+  assert.deepEqual(releaseSpec.extra.poets, ['Rumi', 'Hafez', 'Saadi']);
+});
+
 test('validateReleaseSpec accepts a minimal valid release spec', () => {
   const { valid, errors } = validateReleaseSpec(createValidReleaseSpec());
   assert.equal(valid, true);
@@ -80,7 +89,7 @@ test('validateReleaseSpec rejects unsupported fields and format values', () => {
   const { valid, errors } = validateReleaseSpec(releaseSpec);
   assert.equal(valid, false);
   assert.ok(errors.some((e) => e.includes('format')));
-  assert.ok(errors.some((e) => e.includes('additional properties')));
+  assert.ok(errors.some((e) => e.includes('extra')));
 });
 
 test('loadReleaseSpec throws a helpful error for invalid JSON', () => {
