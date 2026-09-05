@@ -39,8 +39,10 @@ See `schema/release-schema.json` for the full schema and
 }
 ```
 
-`title`, `artists`, `format`, `country`, `released`, `label`, and `tracklist`
-are required; each tracklist item requires `position`, `artist`, and `title`.
+`title`, `artists`, `format`, `country`, `released`, and `tracklist` are
+required; `label` is optional for releases without label information. Artists
+may be names or objects with a `name` and `role`, and each tracklist item
+requires `position`, `artist`, and `title`.
 
 ## Usage
 
