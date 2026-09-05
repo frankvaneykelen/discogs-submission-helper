@@ -1,0 +1,29 @@
+{
+  "name": "discogs-submission-helper",
+  "version": "1.0.0",
+  "description": "A Playwright-driven copilot that fills in the Discogs \"Add Release\" form from a JSON release spec, pausing for manual review before you submit.",
+  "main": "src/cli.js",
+  "scripts": {
+    "start": "node src/cli.js",
+    "test": "node --test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://localhost:26831/frankvaneykelen/discogs-submission-helper"
+  },
+  "keywords": ["discogs", "playwright", "automation"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ajv": "^8.20.0"
+  },
+  "devDependencies": {
+    "playwright": "1.63.0"
+  },
+  "dependencies": {
+    "ajv": "^8.20.0"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
+}

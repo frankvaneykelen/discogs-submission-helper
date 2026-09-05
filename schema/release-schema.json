@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/frankvaneykelen/discogs-submission-helper/schema/release-schema.json",
+  "title": "Discogs Release Spec",
+  "description": "JSON structure describing a release to be submitted to Discogs.",
+  "type": "object",
+  "required": ["title", "format", "tracklist"],
+  "additionalProperties": true,
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Release title."
+    },
+    "format": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "minItems": 1,
+      "description": "Format descriptors, e.g. [\"Cassette\", \"Compilation\", \"Unofficial Release\"]."
+    },
+    "country": {
+      "type": "string",
+      "description": "Country of release, e.g. \"Unknown\"."
+    },
+    "released": {
+      "type": "string",
+      "description": "Release year or date, e.g. \"2002\"."
+    },
+    "genre": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "style": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "notes": {
+      "type": "string"
+    },
+    "tracklist": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["position", "title"],
+        "additionalProperties": true,
+        "properties": {
+          "position": { "type": "string", "minLength": 1 },
+          "artist": { "type": "string" },
+          "title": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}
