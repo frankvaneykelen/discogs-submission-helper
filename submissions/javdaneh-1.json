@@ -1,0 +1,37 @@
+{
+  "title": "جاودانه ۱ (Javdaneh 1)",
+  "artists": [
+    {
+      "name": "Loghman Adhami",
+      "role": "Violin"
+    },
+    {
+      "name": "Dr. Reza Narizi",
+      "role": "Zarb"
+    }
+  ],
+  "format": ["Cassette", "Album"],
+  "country": "US",
+  "released": "1989",
+  "labels": ["Pars Video"],
+  "catalog_number": "619",
+  "genre": ["Folk, World, &amp; Country"],
+  "style": ["Persian Classical"],
+  "notes": "Solo violin performance by Loghman Adhami. Modes mentioned: دستگاه سهگاه, مایه شوشتری, دستگاه ماهور, دستگاه شور, مایه مخالف سهگاه. © Pars Video, 1989 U.S.A., 5585 Reseda Blvd., Suite 103, Tarzana, CA 91356. Warning: Any reproduction of this production is prohibited by Federal Law and is subject to prosecution.",
+  "tracklist": [
+    { "position": "A1", "artist": "Loghman Adhami", "title": "سرمست" },
+    { "position": "A2", "artist": "Loghman Adhami", "title": "مزدوف" },
+    { "position": "A3", "artist": "Loghman Adhami", "title": "جادویی" },
+    { "position": "A4", "artist": "Loghman Adhami", "title": "عاشقانه" },
+    { "position": "B1", "artist": "Loghman Adhami", "title": "غلطان مایه" },
+    { "position": "B2", "artist": "Loghman Adhami", "title": "لنگ" },
+    { "position": "B3", "artist": "Loghman Adhami", "title": "حیاتی" },
+    { "position": "B4", "artist": "Loghman Adhami", "title": "بیات زند" }
+  ],
+  "identifiers": [
+    {
+      "type": "Catalog Number",
+      "value": "619"
+    }
+  ]
+}
