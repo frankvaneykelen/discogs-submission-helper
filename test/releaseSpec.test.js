@@ -17,6 +17,7 @@ const shahramShersharReleasePath = path.join(
   'memorial-of-shahram-shershar.json'
 );
 const najvaReleasePath = path.join(__dirname, '..', 'submissions', 'najva.json');
+const javdanehReleasePath = path.join(__dirname, '..', 'submissions', 'javdaneh-1.json');
 
 function createValidReleaseSpec() {
   return {
@@ -60,6 +61,16 @@ test('loadReleaseSpec loads and validates the Najva submission', () => {
   assert.equal(releaseSpec.released, null);
   assert.equal(releaseSpec.artists[0].role, 'Vocals');
   assert.deepEqual(releaseSpec.extra.poets, ['Rumi', 'Hafez', 'Saadi']);
+});
+
+test('loadReleaseSpec loads and validates the Javdaneh 1 submission', () => {
+  const releaseSpec = loadReleaseSpec(javdanehReleasePath);
+  assert.equal(releaseSpec.title, 'جاودانه ۱ (Javdaneh 1)');
+  assert.equal(releaseSpec.released, '1989');
+  assert.deepEqual(releaseSpec.labels, ['Pars Video']);
+  assert.equal(releaseSpec.catalog_number, '619');
+  assert.equal(releaseSpec.tracklist.length, 8);
+  assert.equal(releaseSpec.artists[1].role, 'Zarb');
 });
 
 test('validateReleaseSpec accepts a minimal valid release spec', () => {
